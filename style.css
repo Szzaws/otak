@@ -2,19 +2,89 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Tajawal", sans-serif;
 }
 
 html, body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background: black;
+  scroll-behavior: smooth;
+  background: #f8f8f8;
 }
 
-.video-loader {
-  position: fixed;
-  inset: 0;
+/* الفيديو */
+.video-section {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-section video {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* يخلي الفيديو واضح ويغطي الشاشة */
+  object-fit: cover;
+}
+
+/* التفاصيل */
+.details {
+  background: white;
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.details h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.details p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 2;
+  margin-bottom: 50px;
+}
+
+/* البطاقات */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fafafa;
+  border: 1px solid #eee;
+  padding: 30px;
+  border-radius: 14px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* الحقوق */
+.footer {
+  background: #111;
+  color: #aaa;
+  text-align: center;
+  padding: 25px 10px;
+  font-size: 0.9rem;
 }

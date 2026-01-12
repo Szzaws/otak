@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>Full Screen Video</title>
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<style>
+/* منع أي انزلاق أفقي */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;          /* 🔒 يمنع أي لف */
+  background: black;
+}
+
+/* فيديو كامل الشاشة الحقيقي */
+.video-wrapper {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100svh;
+  min-height: 100dvh;
+  overflow: hidden;
+}
+
+.video-wrapper video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: 100vw;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  object-fit: cover;         /* يملأ الشاشة دائمًا */
+  display: block;
+}
+</style>
+</head>
+
+<body>
+
+<div class="video-wrapper">
+  <video id="heroVideo" autoplay muted loop playsinline></video>
+</div>
+
+<script>
+const video = document.getElementById("heroVideo");
+
+function setVideoSource() {
+  if (window.innerWidth >= 900) {
+    video.src = "WhatsApp Video 2026-01-12 at 6.00.07 AM.mp4"; // لابتوب + TV
+  } else {
+    video.src = "WhatsApp Video 2026-01-12 at 5.36.07 AM.mp4";  // جوال
+  }
+  video.load();
+}
+
+setVideoSource();
+window.addEventListener("resize", setVideoSource);
+</script>
+
+</body>
+</html>
